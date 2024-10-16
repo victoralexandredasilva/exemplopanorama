@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panoramic Photo with Panolens.js</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        #panorama-container {
+            width: 400px;
+            height: 200px;
+        }
+    </style>
+    <!-- Use uma versão estável e mais antiga do Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r125/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/panolens@0.12.0/build/panolens.min.js"></script>
+</head>
+<body>
+
+    <div id="panorama-container"></div>
+
+    <script>
+        // Container for the panorama
+        const container = document.getElementById('panorama-container');
+
+        // Teste com uma imagem panorâmica online
+        const panorama = new PANOLENS.ImagePanorama('ft_ft.jpg');
+
+        // Crie o visualizador e anexe ao container
+        const viewer = new PANOLENS.Viewer({
+            container: container,
+            autoRotate: true,
+            autoRotateSpeed: 0.5
+        });
+
+        // Adicione o panorama ao visualizador
+        viewer.add(panorama);
+    </script>
+
+</body>
+</html>
